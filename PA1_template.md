@@ -80,6 +80,15 @@ plot(row.names(tm), tm, type = "l", main = "Average Daily Activity Pattern", xla
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-6-1.png) 
+###2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
+
+```r
+names(which.max(tm))
+```
+
+```
+## [1] "835"
+```
 
 ## Imputing missing values
 ###1. Calculate and report the total number of missing values in the dataset
@@ -109,7 +118,7 @@ totalStepsCA <- aggregate(steps ~ date, data = copyActivity, sum, na.rm = TRUE)
 hist(totalStepsCA$steps, main = "Steps per Day", xlab = "Total Steps", ylab = "Frequency", col = "grey")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-9-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-10-1.png) 
 
 ```r
 mean(totalStepsCA$steps)
@@ -143,5 +152,5 @@ names(aggregateSteps) <- c("interval", "type_date", "steps")
 xyplot(steps~interval | type_date, aggregateSteps,type="l",layout=c(1,2), main="Time Series Plot", xlab="5-minute interval",ylab = "Number of steps")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-11-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-12-1.png) 
 
